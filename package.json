@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-nginx-mysql",
+  "version": "1.0.0",
+  "description": "nodejs+nginx+mysql container *nodejs, nginx, mysql launch at the same time *nodejs apps connect to mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiu-kh0607/nodejs-nginx-mysql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiu-kh0607/nodejs-nginx-mysql/issues"
+  },
+  "homepage": "https://github.com/chiu-kh0607/nodejs-nginx-mysql#readme"
+}
