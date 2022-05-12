@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./docker/construct_web      # Dockerfile保存場所
+      dockerfile: Dockerfile-web    # Dockerfileファイル名
+    image: umks-web      # docker image name
+    container_name: umks-web       # docker container name
+    ports:
+      - 80:80
+
+  app:
+    build:
+      context: ./docker/construct_app      # Dockerfile保存場所
+      dockerfile: Dockerfile-app    # Dockerfileファイル名
+    image: umks-app                  # イメージ名
+    container_name: umks-app         # コンテナ名
+    ports:                          # ポート接続
+      - 3000:3000
+    volumes:                        # mount workdir
+      - ./myapp:/src
+    command: [sh, -c, npm install && npm start]
