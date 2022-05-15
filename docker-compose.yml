@@ -1,7 +1,7 @@
 version: '3'
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0.29
     container_name: mysql-app
     volumes:
       - ./mysql:/var/lib/mysql
@@ -10,15 +10,6 @@ services:
       - MYSQL_DATABASE=test_database
       - MYSQL_USER=testuser
       - MYSQL_PASSWORD=test
-  web:
-    build:
-      context: ./docker/construct_web      # Dockerfile保存場所
-      dockerfile: Dockerfile-web    # Dockerfileファイル名
-    image: umks-web      # docker image name
-    container_name: umks-web       # docker container name
-    ports:
-      - 80:80
-
   app:
     build:
       context: ./docker/construct_app      # Dockerfile保存場所
@@ -30,4 +21,11 @@ services:
     volumes:                        # mount workdir
       - ./myapp:/src
     command: [sh, -c, npm install && node app.js]
-      
+  web:
+    build:
+      context: ./docker/construct_web      # Dockerfile保存場所
+      dockerfile: Dockerfile-web    # Dockerfileファイル名
+    image: umks-web      # docker image name
+    container_name: umks-web       # docker container name
+    ports:
+      - 80:80
